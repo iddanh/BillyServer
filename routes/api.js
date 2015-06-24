@@ -106,7 +106,7 @@ router.get('/checks', function (req, res) {
 	console.log(query + " => " + values);
 
 	if(badSyntax){
-		return res.status(500).send("Bad query syntax");
+		return res.status(400).send("Bad query syntax");
 	}
 
 	dbQuery(query, values)
