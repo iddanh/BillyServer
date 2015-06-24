@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -51,6 +52,7 @@ if (app.get('env') === 'development') {
 	app.use(function (err, req, res, next) {
 		res.status(err.status || 500);
 		res.json(err);
+		console.log(error.toString());
 	});
 }
 
@@ -58,7 +60,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
-	res.send(err.message);
+	res.send(err.message.toString());
 });
 
 module.exports = app;
